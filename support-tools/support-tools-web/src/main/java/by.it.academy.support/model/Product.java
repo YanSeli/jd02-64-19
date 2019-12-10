@@ -2,9 +2,6 @@ package by.it.academy.support.model;
 
 import java.util.Objects;
 
-/**
- * Product model
- */
 public class Product {
 
     private Long id;

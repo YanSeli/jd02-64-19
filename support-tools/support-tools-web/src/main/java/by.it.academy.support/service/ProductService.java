@@ -4,9 +4,6 @@ import by.it.academy.support.model.Product;
 
 import java.util.List;
 
-/**
- * Product service
- */
 public interface ProductService {
 
     /**

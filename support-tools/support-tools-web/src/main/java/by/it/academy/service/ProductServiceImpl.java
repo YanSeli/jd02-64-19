@@ -31,4 +31,14 @@ public class ProductServiceImpl implements ProductService {
         product.setId((long) products.size() + 1);
         products.add(product);
     }
+
+    public void update(long id){
+    for (Product p: product){
+        if(id equals p.getId()){
+            ////
+        }
+
+
+    }
+    }
 }

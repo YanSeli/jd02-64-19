@@ -1,8 +1,8 @@
-package by.it.academy.support.servlet;
+package by.it.academy.servlet;
 
-import by.it.academy.support.model.Product;
-import by.it.academy.support.service.ProductService;
-import by.it.academy.support.service.ProductServiceImpl;
+import by.it.academy.staff.Product;
+import by.it.academy.service.ProductService;
+import by.it.academy.service.ProductServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -1,6 +1,6 @@
-package by.it.academy.support.service;
+package by.it.academy.service;
 
-import by.it.academy.support.model.Product;
+import by.it.academy.staff.Product;
 
 import java.util.ArrayList;
 import java.util.List;

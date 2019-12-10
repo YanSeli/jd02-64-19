@@ -1,9 +1,12 @@
-package by.it.academy.support.service;
+package by.it.academy.service;
 
-import by.it.academy.support.model.Product;
+import by.it.academy.staff.Staff;
 
 import java.util.List;
 
+/**
+ * Product service
+ */
 public interface ProductService {
 
     /**
@@ -11,7 +14,7 @@ public interface ProductService {
      *
      * @return list of found product
      */
-    List<Product> getAllProducts();
+    List<Staff> getAllProducts();
 
     /**
      * Add new product
@@ -19,6 +22,6 @@ public interface ProductService {
      *
      * @param product product to save
      */
-    void addNewProduct(Product product);
+    void addNewProduct(Staff product);
 
 }

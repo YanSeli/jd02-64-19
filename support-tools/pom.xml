@@ -12,8 +12,8 @@
     <name>support-tools</name>
 
     <modules>
-        <module>support-tools-web</module>
         <module>support-tools-common</module>
+        <module>support-tools-web</module>
     </modules>
 
     <properties>

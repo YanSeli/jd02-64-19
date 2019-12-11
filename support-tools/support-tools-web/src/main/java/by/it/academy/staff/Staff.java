@@ -5,15 +5,19 @@ import java.util.Objects;
 public class Staff {
     private Long id;
     private String lastName;
-    private Double numCloseMail;
+    private String firstName;
+    private String post;
+    private String shiftEmployee;
 
-    public Staff(){
+    public Staff() {
     }
 
-    public Staff(Long id, String lastName, Double age) {
+    public Staff(Long id, String lastName, String firstName, String post, String shiftEmployee) {
         this.id = id;
         this.lastName = lastName;
-        this.numCloseMail = numCloseMail;
+        this.firstName = firstName;
+        this.post = post;
+        this.shiftEmployee = shiftEmployee;
     }
 
     public Long getId() {
@@ -32,12 +36,28 @@ public class Staff {
         this.lastName = lastName;
     }
 
-    public Double getAge() {
-        return numCloseMail;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setAge(Double age) {
-        this.numCloseMail = age;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getPost() {
+        return post;
+    }
+
+    public void setPost(String post) {
+        this.post = post;
+    }
+
+    public String isShiftEmployee() {
+        return shiftEmployee;
+    }
+
+    public void setShiftEmployee(String shiftEmployee) {
+        this.shiftEmployee = shiftEmployee;
     }
 
     @Override
@@ -45,14 +65,16 @@ public class Staff {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Staff staff = (Staff) o;
-        return id.equals(staff.id) &&
+        return shiftEmployee == staff.shiftEmployee &&
+                id.equals(staff.id) &&
                 lastName.equals(staff.lastName) &&
-                numCloseMail.equals(staff.numCloseMail);
+                firstName.equals(staff.firstName) &&
+                post.equals(staff.post);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, lastName, numCloseMail);
+        return Objects.hash(id, lastName, firstName, post, shiftEmployee);
     }
 
     @Override
@@ -60,7 +82,11 @@ public class Staff {
         return "Staff{" +
                 "id=" + id +
                 ", lastName='" + lastName + '\'' +
-                ", age=" + numCloseMail +
+                ", firstName='" + firstName + '\'' +
+                ", post='" + post + '\'' +
+                ", shiftEmployee=" + shiftEmployee +
                 '}';
     }
+
 }
+

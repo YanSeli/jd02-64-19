@@ -7,21 +7,22 @@ import java.util.List;
 /**
  * Product service
  */
-public interface ProductService {
+public interface StaffService {
 
     /**
      * Gets all products
      *
      * @return list of found product
      */
-    List<Staff> getAllProducts();
+    List<Staff> getAllStaff();
 
     /**
      * Add new product
      * generates new Id
      *
-     * @param product product to save
+     * @param staff product to save
      */
-    void addNewProduct(Staff product);
+
+    void addNewStaff(Staff staff);
 
 }

@@ -1,8 +1,8 @@
 package by.it.academy.servlet;
 
-import by.it.academy.staff.Product;
-import by.it.academy.service.ProductService;
-import by.it.academy.service.ProductServiceImpl;
+import by.it.academy.staff.Staff;
+import by.it.academy.service.StaffService;
+import by.it.academy.service.StaffServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/productCreate")
-public class ProductCreateService extends HttpServlet {
+public class StaffCreateService extends HttpServlet {
 
-    private ProductService productService = ProductServiceImpl.getService();
+    private StaffService staffService = StaffServiceImpl.getService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,12 +24,15 @@ public class ProductCreateService extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("name");
-        String price = req.getParameter("price");
+        String lastName = req.getParameter("Last name");
+        String firstName = req.getParameter("First name");
+        String post = req.getParameter("Position");
+        String shiftEmployee = req.getParameter("Shift employee");
 
-        Product product = new Product(null, name, Double.valueOf(price));
-        productService.addNewProduct(product);
 
-        resp.sendRedirect(req.getContextPath() + "/productList");
+        Staff staff = new Staff(null, lastName, firstName, post, shiftEmployee);
+        staffService.addNewStaff(staff);
+
+        resp.sendRedirect(req.getContextPath() + "/staffList");
     }
 }

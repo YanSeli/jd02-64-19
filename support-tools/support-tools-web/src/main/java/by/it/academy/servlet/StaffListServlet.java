@@ -12,15 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/staffList")
+@WebServlet(urlPatterns = "/staff-list")
 public class StaffListServlet extends HttpServlet {
 
-    private StaffService staffService = StaffServiceImpl.getService();
+    private final StaffService service = StaffServiceImpl.getService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Staff> allStaff = staffService.getAllStaff();
-        req.setAttribute("staffList", allStaff);
+        List<Staff> allStaff = service.getAllStaff();
+        req.setAttribute("staff", allStaff);
         req.getRequestDispatcher("/WEB-INF/staff-list.jsp")
                 .forward(req, resp);
     }

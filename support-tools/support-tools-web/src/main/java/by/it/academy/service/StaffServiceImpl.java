@@ -4,32 +4,47 @@ import by.it.academy.staff.Staff;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class StaffServiceImpl implements StaffService {
 
     private static final StaffService INSTANCE = new StaffServiceImpl();
+    private final Map<Long, Staff> staffRepository = new ConcurrentHashMap<>();
+    private final AtomicLong sequence = new AtomicLong(10);
 
-    private final List<Staff> staffs;
+
 
     private StaffServiceImpl() {
-        staffs = new ArrayList<>();
-        staffs.add(new Staff(1l, "Ivanov", "Ivan", "qa", "day"));
-        staffs.add(new Staff(2l, "Petrov", "Petr", "supporter", "night"));
+        staffRepository.put(1l, new Staff(1l, "Ivanov", "Ivan", "qa", "day"));
+        staffRepository.put(2l, new Staff(2l, "Petrov", "Petr", "supporter", "night"));
     }
 
     public static StaffService getService() {
         return INSTANCE;
     }
-
+    
     @Override
     public List<Staff> getAllStaff() {
-        return staffs;
+        return new ArrayList<>(staffRepository.values());
     }
 
     @Override
-    public void addNewStaff(Staff staff) {
-        staff.setId((long) staffs.size() +1);
-        staffs.add(staff);
+    public Staff add(Staff staff) {
+        staff.setId(sequence.incrementAndGet());
+        staffRepository.put(staff.getId(), staff);
+        return staff;
+    }
+
+    @Override
+    public void delete(Long id) {
+        staffRepository.remove(id);
+    }
+
+    @Override
+    public Staff update(Staff staff) {
+        return staffRepository.put(staff.getId(), staff);
     }
 
 }

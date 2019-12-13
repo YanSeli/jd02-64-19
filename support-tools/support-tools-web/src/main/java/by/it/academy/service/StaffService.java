@@ -21,8 +21,13 @@ public interface StaffService {
      * generates new Id
      *
      * @param staff product to save
+     * @return staff with generated id
      */
+    Staff add(Staff staff);
 
-    void addNewStaff(Staff staff);
+    void delete(Long id);
+
+    Staff update(Staff staff);
+
 
 }

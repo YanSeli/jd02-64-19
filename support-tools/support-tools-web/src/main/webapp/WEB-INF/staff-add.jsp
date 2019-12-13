@@ -19,6 +19,13 @@
         <td><label>Shift employee</label></td>
         <td><input type="text" name="shiftEmployee"></td>
     </tr>
+    <tr>
+        <td><label>Id</label></td>
+        <td><input type="text" name="id"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit"></td>
+    </tr>
 
 </table>
 </html>

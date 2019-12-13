@@ -14,6 +14,7 @@
         <td>Post</td>
         <td>ShiftEmployee</td>
     </tr>
+
     <c:forEach items="${productList}" var="product">
         <tr>
             <td><c:out value="${product.id}"/></td>
@@ -25,4 +26,10 @@
     </c:forEach>
 </table>
 </body>
+<p>
+    <c:url var="add" scope="page">
+        <value>/staff-add</value>
+    </c:url>
+    <a href="${add}">Add new employee</a>
+</p>
 </html>

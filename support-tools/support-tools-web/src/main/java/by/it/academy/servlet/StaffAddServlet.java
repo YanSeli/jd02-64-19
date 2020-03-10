@@ -18,7 +18,7 @@ public class StaffAddServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/staff/staff-add.jsp")
+        req.getRequestDispatcher("/WEB-INF/staff-add.jsp")
                 .forward(req, resp);
     }
 

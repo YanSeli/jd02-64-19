@@ -1,4 +1,4 @@
-package by.it.academy.staff;
+package by.it.academy.support.model;
 
 import java.util.Objects;
 
@@ -9,15 +9,15 @@ public class Staff {
     private String post;
     private String shiftEmployee;
 
-    public Staff() {
-    }
-
     public Staff(Long id, String lastName, String firstName, String post, String shiftEmployee) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
         this.post = post;
         this.shiftEmployee = shiftEmployee;
+    }
+
+    public Staff() {
     }
 
     public Long getId() {
@@ -52,7 +52,7 @@ public class Staff {
         this.post = post;
     }
 
-    public String isShiftEmployee() {
+    public String getShiftEmployee() {
         return shiftEmployee;
     }
 
@@ -65,16 +65,15 @@ public class Staff {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Staff staff = (Staff) o;
-        return shiftEmployee == staff.shiftEmployee &&
-                id.equals(staff.id) &&
-                lastName.equals(staff.lastName) &&
-                firstName.equals(staff.firstName) &&
-                post.equals(staff.post);
+        return Objects.equals(id, staff.id) &&
+                Objects.equals(lastName, staff.lastName) &&
+                Objects.equals(firstName, staff.firstName) &&
+                Objects.equals(post, staff.post);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, lastName, firstName, post, shiftEmployee);
+        return Objects.hash(id, lastName, firstName, post);
     }
 
     @Override

@@ -1,6 +1,6 @@
-package by.it.academy.service;
+package by.it.academy.support.service;
 
-import by.it.academy.staff.Staff;
+import by.it.academy.support.model.Staff;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +14,6 @@ public class StaffServiceImpl implements StaffService {
     private final Map<Long, Staff> staffRepository = new ConcurrentHashMap<>();
     private final AtomicLong sequence = new AtomicLong(10);
 
-
-
     private StaffServiceImpl() {
         staffRepository.put(1l, new Staff(1l, "Ivanov", "Ivan", "qa", "day"));
         staffRepository.put(2l, new Staff(2l, "Petrov", "Petr", "supporter", "night"));
@@ -24,7 +22,7 @@ public class StaffServiceImpl implements StaffService {
     public static StaffService getService() {
         return INSTANCE;
     }
-    
+
     @Override
     public List<Staff> getAllStaff() {
         return new ArrayList<>(staffRepository.values());

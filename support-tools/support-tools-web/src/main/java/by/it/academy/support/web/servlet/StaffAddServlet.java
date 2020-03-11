@@ -1,8 +1,8 @@
-package by.it.academy.servlet;
+package by.it.academy.support.web.servlet;
 
-import by.it.academy.staff.Staff;
-import by.it.academy.service.StaffService;
-import by.it.academy.service.StaffServiceImpl;
+import by.it.academy.support.model.Staff;
+import by.it.academy.support.service.StaffService;
+import by.it.academy.support.service.StaffServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,11 +14,11 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/staff-add")
 public class StaffAddServlet extends HttpServlet {
 
-    private StaffService staffService = StaffServiceImpl.getService();
+    private final StaffService staffService = StaffServiceImpl.getService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/staff-add.jsp")
+        req.getRequestDispatcher("/WEB-INF/jsp/staff/staff-add.jsp")
                 .forward(req, resp);
     }
 
@@ -29,8 +29,8 @@ public class StaffAddServlet extends HttpServlet {
                 req.getParameter("firstName"),
                 req.getParameter("post"),
                 req.getParameter("shiftEmployee"));
-        staffService.add(staff);
 
+        staffService.add(staff);
         resp.sendRedirect(req.getContextPath() + "/staff-list");
     }
 }
